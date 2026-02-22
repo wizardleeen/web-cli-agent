@@ -1,4 +1,3 @@
-import React from 'react'
 import { Terminal as TerminalIcon, Code, Split, Play, Save } from 'lucide-react'
 
 interface HeaderProps {
@@ -6,7 +5,7 @@ interface HeaderProps {
   onViewModeChange: (mode: 'terminal' | 'editor' | 'split') => void
 }
 
-export const Header: React.FC<HeaderProps> = ({ viewMode, onViewModeChange }) => {
+export const Header = ({ viewMode, onViewModeChange }: HeaderProps) => {
   return (
     <header className="bg-gray-800 border-b border-gray-700 px-4 py-3">
       <div className="flex items-center justify-between">

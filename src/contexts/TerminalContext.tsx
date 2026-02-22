@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode } from 'react'
+import { createContext, useContext, ReactNode } from 'react'
 
 interface TerminalContextType {
   executeCommand: (command: string) => Promise<string>
@@ -105,7 +105,11 @@ package.json
   }
 }
 
-export const TerminalProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+interface TerminalProviderProps {
+  children: ReactNode
+}
+
+export const TerminalProvider = ({ children }: TerminalProviderProps) => {
   const executeCommand = async (command: string): Promise<string> => {
     commandHistory.push(command)
     return await simulateCommand(command)

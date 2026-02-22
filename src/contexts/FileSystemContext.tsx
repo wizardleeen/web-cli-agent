@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState, ReactNode } from 'react'
 
 export interface FileNode {
   name: string
@@ -63,7 +63,11 @@ const defaultFileTree: FileNode[] = [
   }
 ]
 
-export const FileSystemProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+interface FileSystemProviderProps {
+  children: ReactNode
+}
+
+export const FileSystemProvider = ({ children }: FileSystemProviderProps) => {
   const [fileTree, setFileTree] = useState<FileNode[]>(defaultFileTree)
   const [currentFile, setCurrentFile] = useState<string | null>(null)
 

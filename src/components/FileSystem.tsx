@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { ChevronRight, ChevronDown, File, Folder, FolderOpen, Plus, Trash2 } from 'lucide-react'
 import { useFileSystem, FileNode } from '../contexts/FileSystemContext'
 
@@ -14,13 +14,13 @@ interface FileTreeItemProps {
   setExpandedDirs: React.Dispatch<React.SetStateAction<Set<string>>>
 }
 
-const FileTreeItem: React.FC<FileTreeItemProps> = ({
+const FileTreeItem = ({
   node,
   depth,
   onFileSelect,
   expandedDirs,
   setExpandedDirs
-}) => {
+}: FileTreeItemProps) => {
   const { deleteFile } = useFileSystem()
   const isExpanded = expandedDirs.has(node.path)
 
@@ -96,7 +96,7 @@ const FileTreeItem: React.FC<FileTreeItemProps> = ({
   )
 }
 
-export const FileSystem: React.FC<FileSystemProps> = ({ onFileSelect }) => {
+export const FileSystem = ({ onFileSelect }: FileSystemProps) => {
   const { fileTree, createFile, createDirectory } = useFileSystem()
   const [expandedDirs, setExpandedDirs] = useState<Set<string>>(new Set(['/src']))
   const [showNewFileDialog, setShowNewFileDialog] = useState(false)

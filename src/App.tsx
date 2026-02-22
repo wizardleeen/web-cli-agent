@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { FileSystem } from './components/FileSystem'
 import { Terminal } from './components/Terminal'
 import { CodeEditor } from './components/CodeEditor'

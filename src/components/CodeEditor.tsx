@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Editor, { Monaco } from '@monaco-editor/react'
 import { useFileSystem } from '../contexts/FileSystemContext'
 
@@ -6,7 +6,7 @@ interface CodeEditorProps {
   currentFile: string | null
 }
 
-export const CodeEditor: React.FC<CodeEditorProps> = ({ currentFile }) => {
+export const CodeEditor = ({ currentFile }: CodeEditorProps) => {
   const { getFileContent, setFileContent } = useFileSystem()
   const [content, setContent] = useState('')
   const [language, setLanguage] = useState('plaintext')
